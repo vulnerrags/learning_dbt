@@ -1,0 +1,14 @@
+[project]
+name = "learning-dbt"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "dbt>=1.0.0.40.14",
+    "dbt-clickhouse>=1.9.3",
+    "dbt-core>=1.11.4",
+    "dbt-postgres>=1.10.0",
+    "polars>=1.38.1",
+    "psycopg2-binary>=2.9.11",
+]
