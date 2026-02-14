@@ -1,0 +1,42 @@
+sources:
+  - name: demo_src
+    database: learning_dbt_dwh_flights
+    schema: demo_src
+    description: данные из БД авиаперелетов
+    tables:
+      - name: aircrafts
+        description: '{{ doc("aircrafts_description") }}'
+        columns:
+          - name: aircraft_code
+            description: >
+              код модели самолета.
+              состоит из 3 латинских букв.
+            tests:
+              - unique
+              - not_null
+          - name: model
+            description: название модели самолета
+          - name: range
+            description: дальность полета модели самолета
+      - name: airports
+        description: названия аэропортов
+        columns:
+          - name: airport_code
+            description: код аэропорта
+          - name: airport_name
+            description: название аэропорта
+          - name: city
+            description: город, в котором расположен аэропорт
+          - name: coordinates
+            description: координаты аэропорта
+          - name: timezone
+            description: часовой пояс аэропорта
+      - name: seats
+        description: места внутри самолета
+        columns:
+          - name: aircraft_code
+            description: код самолета, к которому относится место
+          - name: seat_no
+            description: номер места внутри самолета
+          - name: fare_conditions
+            description: класс обслуживания (эконом, бизнес)
